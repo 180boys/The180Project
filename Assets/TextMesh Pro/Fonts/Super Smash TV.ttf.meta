@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 196252f4e4117b14c891d80018b27412
+guid: 50be0d5a88c1e0344afdd76fe4881889
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Still Time
+  fontName: Super Smash TV
   fontNames:
-  - Still Time
+  - Super Smash TV
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
