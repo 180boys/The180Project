@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.20574442, g: 0.19630748, b: 0.24751738, a: 1}
+  m_IndirectSpecularColor: {r: 0.22318313, g: 0.21445772, b: 0.2852869, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2451,7 +2451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63.082214, y: -1370.5348}
+  m_AnchoredPosition: {x: -61, y: -1448}
   m_SizeDelta: {x: 650, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &303924444
@@ -9407,6 +9407,11 @@ MonoBehaviour:
 
 
 
+    Animations
+
+
+
+
     AI Programmer
 
 
@@ -9487,12 +9492,12 @@ MonoBehaviour:
   m_margin: {x: -0.00008530218, y: 0.88132465, z: 0.000076270335, w: 0}
   m_textInfo:
     textComponent: {fileID: 1277198131}
-    characterCount: 114
+    characterCount: 128
     spriteCount: 0
-    spaceCount: 33
-    wordCount: 12
+    spaceCount: 37
+    wordCount: 13
     linkCount: 0
-    lineCount: 28
+    lineCount: 32
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -9589,7 +9594,7 @@ MonoBehaviour:
     A game
     made by:
 
-    Evan Waters, Connor Barker, Jason Ford'
+    Evan Waters & Connor Barker'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7947885cbdb6c8949b588ca5d897b5ee, type: 2}
   m_sharedMaterial: {fileID: 212579666258450048, guid: 7947885cbdb6c8949b588ca5d897b5ee,
@@ -9659,10 +9664,10 @@ MonoBehaviour:
   m_margin: {x: -0.00008530218, y: 0.88132465, z: 0.000076270335, w: 0}
   m_textInfo:
     textComponent: {fileID: 1287302279}
-    characterCount: 104
+    characterCount: 93
     spriteCount: 0
-    spaceCount: 23
-    wordCount: 18
+    spaceCount: 22
+    wordCount: 16
     linkCount: 0
     lineCount: 11
     pageCount: 1
@@ -11232,7 +11237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63.082214, y: -1790.5342}
+  m_AnchoredPosition: {x: -60, y: -1874}
   m_SizeDelta: {x: 650, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1519112146
@@ -12165,9 +12170,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Evan Waters\n\n\n\nEvan Waters\nConner Barker\n\n\nConnor Barker\n\n\n\nEvan
-    Waters\n\n\n\nEvan Waters\n\n\n\nJason Ford \n\n\n\nEvan Waters\nConnor Barker\nJason
-    Ford\n\n\n\n"
+  m_text: "Evan Waters\n\n\n\nEvan Waters\nConnor Barker\n\n\nConnor Barker\n\n\n\nEvan
+    Waters\n\n\n\nEvan Waters\n\n\n\nConnor Barker \n\n\n\nConnor Barker\n\n\n\nEvan
+    Waters\nConnor Barker\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7947885cbdb6c8949b588ca5d897b5ee, type: 2}
   m_sharedMaterial: {fileID: 212579666258450048, guid: 7947885cbdb6c8949b588ca5d897b5ee,
@@ -12237,12 +12242,12 @@ MonoBehaviour:
   m_margin: {x: -0.00008530218, y: 0.88132465, z: 0.000076270335, w: 0}
   m_textInfo:
     textComponent: {fileID: 1669974812}
-    characterCount: 145
+    characterCount: 154
     spriteCount: 0
-    spaceCount: 41
+    spaceCount: 44
     wordCount: 20
     linkCount: 0
-    lineCount: 30
+    lineCount: 33
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -13615,7 +13620,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 38
+  m_firstOverflowCharacterIndex: 6
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -13639,12 +13644,12 @@ MonoBehaviour:
   m_margin: {x: -0.00008530218, y: 0.88132465, z: 0.000076270335, w: 0}
   m_textInfo:
     textComponent: {fileID: 1884875455}
-    characterCount: 64
+    characterCount: 33
     spriteCount: 0
-    spaceCount: 29
-    wordCount: 8
+    spaceCount: 27
+    wordCount: 3
     linkCount: 0
-    lineCount: 26
+    lineCount: 27
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
