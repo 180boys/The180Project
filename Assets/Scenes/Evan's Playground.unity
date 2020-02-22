@@ -361,12 +361,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5171d5eb12e0f184a8761aa4157f7d00, type: 3}
---- !u!4 &483340959 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47,
-    type: 3}
-  m_PrefabInstance: {fileID: 634747217}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519792633
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +391,7 @@ Transform:
   - {fileID: 1651204362}
   - {fileID: 1062067473}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &547459231
 GameObject:
@@ -496,23 +490,27 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1081357362}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1024860913751546, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_Name
-      value: Character_Male_Face_01
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024860913751546, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.23
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 723.5522
+      value: 0.030029297
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.4656105
+      value: 2.6862211
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_LocalRotation.x
@@ -532,7 +530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -566,10 +564,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ad1dc6555ff6a45b2a1e99fb0fd414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerno: 0
+  playerno: 1
   shoot: 0
   walking: 0
-  moveSpeed: 0
+  moveSpeed: 2
   turning: 0
 --- !u!4 &752132406 stripped
 Transform:
@@ -791,38 +789,6 @@ Transform:
   - {fileID: 142770881}
   m_Father: {fileID: 519792634}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1081357361
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1081357362}
-  m_Layer: 0
-  m_Name: Character
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1081357362
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081357361}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.296134, y: -723.52216, z: 4.081465}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 483340959}
-  - {fileID: 1964497950}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1095701908 stripped
 Transform:
@@ -1216,23 +1182,27 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1081357362}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1024860913751546, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_Name
-      value: Character_Male_Face_01 (1)
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024860913751546, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.296134
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 723.5522
+      value: 0.030029297
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.99
+      value: 6.6014647
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1252,7 +1222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1268,12 +1238,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 194f8fbf67729fd40936b3465af2cc47, type: 3}
---- !u!4 &1964497950 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4780083634823512, guid: 194f8fbf67729fd40936b3465af2cc47,
-    type: 3}
-  m_PrefabInstance: {fileID: 1964497949}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1964497951 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1024860913751546, guid: 194f8fbf67729fd40936b3465af2cc47,
@@ -1292,10 +1256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ad1dc6555ff6a45b2a1e99fb0fd414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerno: 0
+  playerno: 2
   shoot: 0
   walking: 0
-  moveSpeed: 0
+  moveSpeed: 1
   turning: 0
 --- !u!1001 &1967046011
 PrefabInstance:

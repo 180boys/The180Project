@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PlayerMovement : MonoBehaviour
 {
     public int playerno;
@@ -28,13 +27,7 @@ public class PlayerMovement : MonoBehaviour
             float verticalInput = Input.GetAxis("Vertical");
 
             //update the position
-            transform.position = transform.position + new Vector3(-verticalInput * moveSpeed * Time.deltaTime, 0f, horizontalInput * moveSpeed * Time.deltaTime);
-
-            if (!turning)
-            {
-                Vector3 lookDirection = new Vector3(-verticalInput, 0, horizontalInput);
-                transform.rotation = Quaternion.LookRotation(lookDirection);
-            }
+            transform.position = transform.position + new Vector3(verticalInput * moveSpeed * Time.deltaTime, 0f, -horizontalInput * moveSpeed * Time.deltaTime);
 
             if (horizontalInput > 0.1f || horizontalInput < -0.1f || verticalInput > 0.1f || verticalInput < -0.1f)
             {
@@ -76,13 +69,7 @@ public class PlayerMovement : MonoBehaviour
                 float verticalInput = Input.GetAxis("Vertical1");
 
                 //update the position
-                transform.position = transform.position + new Vector3(-verticalInput * moveSpeed * Time.deltaTime, 0f, horizontalInput * moveSpeed * Time.deltaTime);
-
-                if (!turning)
-                {
-                    Vector3 lookDirection = new Vector3(-verticalInput, 0, horizontalInput);
-                    transform.rotation = Quaternion.LookRotation(lookDirection);
-                }
+                transform.position = transform.position + new Vector3(verticalInput * moveSpeed * Time.deltaTime, 0f, -horizontalInput * moveSpeed * Time.deltaTime);
 
                 if (horizontalInput > 0.1f || horizontalInput < -0.1f || verticalInput > 0.1f || verticalInput < -0.1f)
                 {
@@ -111,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
                 if (turning)
                 {
                     //update the position
-                    Vector3 rlookDirection = new Vector3(righthorizontalInput, 0, -rightverticalInput);
+                    Vector3 rlookDirection = new Vector3(-rightverticalInput, 0,  righthorizontalInput);
                     transform.rotation = Quaternion.LookRotation(rlookDirection);
                 }
             }
