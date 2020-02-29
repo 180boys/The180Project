@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     public int playerno;
@@ -22,12 +23,18 @@ public class PlayerMovement : MonoBehaviour
         if (playerno == 1)
         {
             //get the Input from Horizontal axis
-            float horizontalInput = Input.GetAxis("Horizontal");
+            float horizontalInput = Input.GetAxis("LeftHorizontal");
             //get the Input from Vertical axis
-            float verticalInput = Input.GetAxis("Vertical");
+            float verticalInput = Input.GetAxis("LeftVertical");
 
             //update the position
-            transform.position = transform.position + new Vector3(verticalInput * moveSpeed * Time.deltaTime, 0f, -horizontalInput * moveSpeed * Time.deltaTime);
+            transform.position = transform.position + new Vector3(-verticalInput * moveSpeed * Time.deltaTime, 0f, horizontalInput * moveSpeed * Time.deltaTime);
+
+            if (!turning)
+            {
+                Vector3 lookDirection = new Vector3(-verticalInput, 0, horizontalInput);
+                transform.rotation = Quaternion.LookRotation(lookDirection);
+            }
 
             if (horizontalInput > 0.1f || horizontalInput < -0.1f || verticalInput > 0.1f || verticalInput < -0.1f)
             {
@@ -60,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(rlookDirection);
             }
         }
-
+        /*
             if (playerno == 2)
             {
                 //get the Input from Horizontal axis
@@ -69,7 +76,13 @@ public class PlayerMovement : MonoBehaviour
                 float verticalInput = Input.GetAxis("Vertical1");
 
                 //update the position
-                transform.position = transform.position + new Vector3(verticalInput * moveSpeed * Time.deltaTime, 0f, -horizontalInput * moveSpeed * Time.deltaTime);
+                transform.position = transform.position + new Vector3(-verticalInput * moveSpeed * Time.deltaTime, 0f, horizontalInput * moveSpeed * Time.deltaTime);
+
+                if (!turning)
+                {
+                    Vector3 lookDirection = new Vector3(-verticalInput, 0, horizontalInput);
+                    transform.rotation = Quaternion.LookRotation(lookDirection);
+                }
 
                 if (horizontalInput > 0.1f || horizontalInput < -0.1f || verticalInput > 0.1f || verticalInput < -0.1f)
                 {
@@ -98,10 +111,10 @@ public class PlayerMovement : MonoBehaviour
                 if (turning)
                 {
                     //update the position
-                    Vector3 rlookDirection = new Vector3(-rightverticalInput, 0,  righthorizontalInput);
+                    Vector3 rlookDirection = new Vector3(righthorizontalInput, 0, -rightverticalInput);
                     transform.rotation = Quaternion.LookRotation(rlookDirection);
                 }
-            }
+            } */
 
     }
 }
