@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   MovementSpeed: 3
-  StoppingDistance: 6
+  StoppingDistance: 3
 --- !u!136 &117882727
 CapsuleCollider:
   m_ObjectHideFlags: 0
