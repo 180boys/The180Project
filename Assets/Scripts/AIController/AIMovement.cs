@@ -29,10 +29,6 @@ public class AIMovement : MonoBehaviour
         transform.LookAt(Player.transform);
 
         //once stopped, shoot!
-        if (Vector3.Distance(transform.position, Player.transform.position) < StoppingDistance)
-        {
-            GameObject bullet = Instantiate(Bullet, transform.position, Quaternion.identity) as GameObject;
-        }
 
         //once attack is finished, chase the player
 
