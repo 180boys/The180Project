@@ -17,7 +17,7 @@ namespace InputPlayerControls
     ""name"": ""InputPlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Player 1"",
+            ""name"": ""PlayerControler"",
             ""id"": ""bf6d0d31-db2b-401a-944e-38865b6c63fc"",
             ""actions"": [
                 {
@@ -375,17 +375,17 @@ namespace InputPlayerControls
         }
     ]
 }");
-            // Player 1
-            m_Player1 = asset.FindActionMap("Player 1", throwIfNotFound: true);
-            m_Player1_move = m_Player1.FindAction("move", throwIfNotFound: true);
-            m_Player1_look = m_Player1.FindAction("look", throwIfNotFound: true);
-            m_Player1_accept = m_Player1.FindAction("accept", throwIfNotFound: true);
-            m_Player1_back = m_Player1.FindAction("back", throwIfNotFound: true);
-            m_Player1_pause = m_Player1.FindAction("pause", throwIfNotFound: true);
-            m_Player1_shoot = m_Player1.FindAction("shoot", throwIfNotFound: true);
-            m_Player1_bash = m_Player1.FindAction("bash", throwIfNotFound: true);
-            m_Player1_teleport = m_Player1.FindAction("teleport", throwIfNotFound: true);
-            m_Player1_rocket = m_Player1.FindAction("rocket", throwIfNotFound: true);
+            // PlayerControler
+            m_PlayerControler = asset.FindActionMap("PlayerControler", throwIfNotFound: true);
+            m_PlayerControler_move = m_PlayerControler.FindAction("move", throwIfNotFound: true);
+            m_PlayerControler_look = m_PlayerControler.FindAction("look", throwIfNotFound: true);
+            m_PlayerControler_accept = m_PlayerControler.FindAction("accept", throwIfNotFound: true);
+            m_PlayerControler_back = m_PlayerControler.FindAction("back", throwIfNotFound: true);
+            m_PlayerControler_pause = m_PlayerControler.FindAction("pause", throwIfNotFound: true);
+            m_PlayerControler_shoot = m_PlayerControler.FindAction("shoot", throwIfNotFound: true);
+            m_PlayerControler_bash = m_PlayerControler.FindAction("bash", throwIfNotFound: true);
+            m_PlayerControler_teleport = m_PlayerControler.FindAction("teleport", throwIfNotFound: true);
+            m_PlayerControler_rocket = m_PlayerControler.FindAction("rocket", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -432,69 +432,69 @@ namespace InputPlayerControls
             asset.Disable();
         }
 
-        // Player 1
-        private readonly InputActionMap m_Player1;
-        private IPlayer1Actions m_Player1ActionsCallbackInterface;
-        private readonly InputAction m_Player1_move;
-        private readonly InputAction m_Player1_look;
-        private readonly InputAction m_Player1_accept;
-        private readonly InputAction m_Player1_back;
-        private readonly InputAction m_Player1_pause;
-        private readonly InputAction m_Player1_shoot;
-        private readonly InputAction m_Player1_bash;
-        private readonly InputAction m_Player1_teleport;
-        private readonly InputAction m_Player1_rocket;
-        public struct Player1Actions
+        // PlayerControler
+        private readonly InputActionMap m_PlayerControler;
+        private IPlayerControlerActions m_PlayerControlerActionsCallbackInterface;
+        private readonly InputAction m_PlayerControler_move;
+        private readonly InputAction m_PlayerControler_look;
+        private readonly InputAction m_PlayerControler_accept;
+        private readonly InputAction m_PlayerControler_back;
+        private readonly InputAction m_PlayerControler_pause;
+        private readonly InputAction m_PlayerControler_shoot;
+        private readonly InputAction m_PlayerControler_bash;
+        private readonly InputAction m_PlayerControler_teleport;
+        private readonly InputAction m_PlayerControler_rocket;
+        public struct PlayerControlerActions
         {
             private @InputPlayerControls m_Wrapper;
-            public Player1Actions(@InputPlayerControls wrapper) { m_Wrapper = wrapper; }
-            public InputAction @move => m_Wrapper.m_Player1_move;
-            public InputAction @look => m_Wrapper.m_Player1_look;
-            public InputAction @accept => m_Wrapper.m_Player1_accept;
-            public InputAction @back => m_Wrapper.m_Player1_back;
-            public InputAction @pause => m_Wrapper.m_Player1_pause;
-            public InputAction @shoot => m_Wrapper.m_Player1_shoot;
-            public InputAction @bash => m_Wrapper.m_Player1_bash;
-            public InputAction @teleport => m_Wrapper.m_Player1_teleport;
-            public InputAction @rocket => m_Wrapper.m_Player1_rocket;
-            public InputActionMap Get() { return m_Wrapper.m_Player1; }
+            public PlayerControlerActions(@InputPlayerControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @move => m_Wrapper.m_PlayerControler_move;
+            public InputAction @look => m_Wrapper.m_PlayerControler_look;
+            public InputAction @accept => m_Wrapper.m_PlayerControler_accept;
+            public InputAction @back => m_Wrapper.m_PlayerControler_back;
+            public InputAction @pause => m_Wrapper.m_PlayerControler_pause;
+            public InputAction @shoot => m_Wrapper.m_PlayerControler_shoot;
+            public InputAction @bash => m_Wrapper.m_PlayerControler_bash;
+            public InputAction @teleport => m_Wrapper.m_PlayerControler_teleport;
+            public InputAction @rocket => m_Wrapper.m_PlayerControler_rocket;
+            public InputActionMap Get() { return m_Wrapper.m_PlayerControler; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(Player1Actions set) { return set.Get(); }
-            public void SetCallbacks(IPlayer1Actions instance)
+            public static implicit operator InputActionMap(PlayerControlerActions set) { return set.Get(); }
+            public void SetCallbacks(IPlayerControlerActions instance)
             {
-                if (m_Wrapper.m_Player1ActionsCallbackInterface != null)
+                if (m_Wrapper.m_PlayerControlerActionsCallbackInterface != null)
                 {
-                    @move.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMove;
-                    @move.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMove;
-                    @move.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMove;
-                    @look.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnLook;
-                    @look.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnLook;
-                    @look.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnLook;
-                    @accept.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAccept;
-                    @accept.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAccept;
-                    @accept.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAccept;
-                    @back.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnBack;
-                    @back.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnBack;
-                    @back.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnBack;
-                    @pause.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPause;
-                    @pause.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPause;
-                    @pause.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPause;
-                    @shoot.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
-                    @shoot.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
-                    @shoot.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
-                    @bash.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnBash;
-                    @bash.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnBash;
-                    @bash.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnBash;
-                    @teleport.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnTeleport;
-                    @teleport.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnTeleport;
-                    @teleport.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnTeleport;
-                    @rocket.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRocket;
-                    @rocket.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRocket;
-                    @rocket.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRocket;
+                    @move.started -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnMove;
+                    @move.performed -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnMove;
+                    @move.canceled -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnMove;
+                    @look.started -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnLook;
+                    @look.performed -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnLook;
+                    @look.canceled -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnLook;
+                    @accept.started -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnAccept;
+                    @accept.performed -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnAccept;
+                    @accept.canceled -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnAccept;
+                    @back.started -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnBack;
+                    @back.performed -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnBack;
+                    @back.canceled -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnBack;
+                    @pause.started -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnPause;
+                    @pause.performed -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnPause;
+                    @pause.canceled -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnPause;
+                    @shoot.started -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnShoot;
+                    @shoot.performed -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnShoot;
+                    @shoot.canceled -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnShoot;
+                    @bash.started -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnBash;
+                    @bash.performed -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnBash;
+                    @bash.canceled -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnBash;
+                    @teleport.started -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnTeleport;
+                    @teleport.performed -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnTeleport;
+                    @teleport.canceled -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnTeleport;
+                    @rocket.started -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnRocket;
+                    @rocket.performed -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnRocket;
+                    @rocket.canceled -= m_Wrapper.m_PlayerControlerActionsCallbackInterface.OnRocket;
                 }
-                m_Wrapper.m_Player1ActionsCallbackInterface = instance;
+                m_Wrapper.m_PlayerControlerActionsCallbackInterface = instance;
                 if (instance != null)
                 {
                     @move.started += instance.OnMove;
@@ -527,7 +527,7 @@ namespace InputPlayerControls
                 }
             }
         }
-        public Player1Actions @Player1 => new Player1Actions(this);
+        public PlayerControlerActions @PlayerControler => new PlayerControlerActions(this);
         private int m_XboxSchemeIndex = -1;
         public InputControlScheme XboxScheme
         {
@@ -546,7 +546,7 @@ namespace InputPlayerControls
                 return asset.controlSchemes[m_KeyboardSchemeIndex];
             }
         }
-        public interface IPlayer1Actions
+        public interface IPlayerControlerActions
         {
             void OnMove(InputAction.CallbackContext context);
             void OnLook(InputAction.CallbackContext context);
