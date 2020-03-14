@@ -65,30 +65,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""bash"",
-                    ""type"": ""Button"",
-                    ""id"": ""78c0316e-7632-4c4a-af49-53a81b36363b"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""teleport"",
-                    ""type"": ""Button"",
-                    ""id"": ""7049588a-ed2c-431d-85bf-33a26da656a6"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""rocket"",
-                    ""type"": ""Button"",
-                    ""id"": ""e377c76c-685c-4540-a8e0-fac1fcb4fe4e"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -311,72 +287,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ed55bbc8-7b53-4fa8-85d9-56ac90f6ba0e"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""bash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e4799be5-5ada-4da1-8996-e116031e202f"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""bash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c267f268-2a93-4c52-9167-aaa1a276a368"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""teleport"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""242aa77c-fea3-4e99-aeab-97354aa92a0b"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""teleport"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b0a523ba-9f3b-4b8c-917c-60cf98b30282"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""rocket"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4b63ca2f-c655-4dcf-99a0-1afaabe3a279"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""rocket"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -414,9 +324,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControls_back = m_PlayerControls.FindAction("back", throwIfNotFound: true);
         m_PlayerControls_pause = m_PlayerControls.FindAction("pause", throwIfNotFound: true);
         m_PlayerControls_shoot = m_PlayerControls.FindAction("shoot", throwIfNotFound: true);
-        m_PlayerControls_bash = m_PlayerControls.FindAction("bash", throwIfNotFound: true);
-        m_PlayerControls_teleport = m_PlayerControls.FindAction("teleport", throwIfNotFound: true);
-        m_PlayerControls_rocket = m_PlayerControls.FindAction("rocket", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -472,9 +379,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_back;
     private readonly InputAction m_PlayerControls_pause;
     private readonly InputAction m_PlayerControls_shoot;
-    private readonly InputAction m_PlayerControls_bash;
-    private readonly InputAction m_PlayerControls_teleport;
-    private readonly InputAction m_PlayerControls_rocket;
     public struct PlayerControlsActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -485,9 +389,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @back => m_Wrapper.m_PlayerControls_back;
         public InputAction @pause => m_Wrapper.m_PlayerControls_pause;
         public InputAction @shoot => m_Wrapper.m_PlayerControls_shoot;
-        public InputAction @bash => m_Wrapper.m_PlayerControls_bash;
-        public InputAction @teleport => m_Wrapper.m_PlayerControls_teleport;
-        public InputAction @rocket => m_Wrapper.m_PlayerControls_rocket;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -515,15 +416,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @shoot.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShoot;
                 @shoot.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShoot;
                 @shoot.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShoot;
-                @bash.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnBash;
-                @bash.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnBash;
-                @bash.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnBash;
-                @teleport.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnTeleport;
-                @teleport.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnTeleport;
-                @teleport.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnTeleport;
-                @rocket.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRocket;
-                @rocket.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRocket;
-                @rocket.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRocket;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -546,15 +438,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @shoot.started += instance.OnShoot;
                 @shoot.performed += instance.OnShoot;
                 @shoot.canceled += instance.OnShoot;
-                @bash.started += instance.OnBash;
-                @bash.performed += instance.OnBash;
-                @bash.canceled += instance.OnBash;
-                @teleport.started += instance.OnTeleport;
-                @teleport.performed += instance.OnTeleport;
-                @teleport.canceled += instance.OnTeleport;
-                @rocket.started += instance.OnRocket;
-                @rocket.performed += instance.OnRocket;
-                @rocket.canceled += instance.OnRocket;
             }
         }
     }
@@ -585,8 +468,5 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnBack(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
-        void OnBash(InputAction.CallbackContext context);
-        void OnTeleport(InputAction.CallbackContext context);
-        void OnRocket(InputAction.CallbackContext context);
     }
 }
