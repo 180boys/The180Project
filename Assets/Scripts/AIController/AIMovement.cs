@@ -14,6 +14,7 @@ public class AIMovement : MonoBehaviour
     public bool IsShooting;
     public int BulletRate = 3;
     public int Health;
+    public float ProjectileOffset = 1.3f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class AIMovement : MonoBehaviour
         // if withen a certain range, follow the player
         if (Vector3.Distance(transform.position, Player.transform.position) > StoppingDistance)
         {
-
+            IsShooting = false;
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, MovementSpeed * Time.deltaTime);
 
         }
@@ -46,13 +47,21 @@ public class AIMovement : MonoBehaviour
         {
             if (IsShooting == true)
             {
-              //  BulletEmitter.transform.rotation=
-                Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation);
-
+               // Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation);
+                Debug.Log("AI shoots" + i);
+            }
+            // once i = 3 is called, stop shooting
+            if (i > BulletRate)
+            {
+                IsShooting = false;
+                Debug.Log("stops shooting");
             }
         }
-        //once attack is finished, chase the player
-
+        
         // when he dies
+        if (Health == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
