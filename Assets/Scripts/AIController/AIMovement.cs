@@ -12,7 +12,7 @@ public class AIMovement : MonoBehaviour
     public float StoppingDistance;
     public Transform target;
     public bool IsShooting;
-    public int BulletRate = 3;
+    public int burstCount = 3;
     public int Health;
     public float ProjectileOffset = 1.3f;
 
@@ -42,26 +42,12 @@ public class AIMovement : MonoBehaviour
 
             transform.LookAt(Player.transform);
 
-        // shooting
-        for (var i = 0; i < BulletRate; i++)
-        {
-            if (IsShooting == true)
-            {
-               // Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation);
-                Debug.Log("AI shoots" + i);
-            }
-            // once i = 3 is called, stop shooting
-            if (i > BulletRate)
-            {
-                IsShooting = false;
-                Debug.Log("stops shooting");
-            }
-        }
-        
         // when he dies
         if (Health == 0)
         {
             Destroy(gameObject);
         }
+    
     }
 }
+
