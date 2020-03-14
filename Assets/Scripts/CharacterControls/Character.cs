@@ -8,25 +8,23 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     //Set camera to focus on player here
-    [Header("Cameras")]
+    [Header("Camera")]
     public Camera mainCamera;
 
     //Setting physics and movement speed
     [Header("Physics and Movement Speed")]
     public Rigidbody playerRigidbody;
     public float speed = 4f;
+    private Vector3 inputDirection;
+    private Vector3 movement;
 
-    [Header("Movement")]
-    public Vector3 inputDirection;
-    public Vector3 movement;
-
-    [Header("Rotation")]
-    public Plane playerMovementPlane;
+    
+    private Plane playerMovementPlane;
     private RaycastHit floorRaycastHit;
-    public Vector3 playerToMouse;
+    private Vector3 playerToMouse;
 
     [Header("Animation")]
-    public Animator playerAnimator;
+    //public Animator playerAnimator;
 
     //inputs
     Vector2 movementInput;
@@ -40,13 +38,18 @@ public class Character : MonoBehaviour
         CreatePlayerMovementPlane();
         inputAction = new PlayerInputActions();
         inputAction.PlayerControls.move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
-        //inputAction.PlayerControls.FireDirection.performed += ctx => lookPosition = ctx.ReadValue<Vector2>();
+        inputAction.PlayerControls.look.performed += ctx => lookPosition = ctx.ReadValue<Vector2>();
+
+    }
+
+    void CreatePlayerMovementPlane()
+    {
+        playerMovementPlane = new Plane(transform.up, transform.position + transform.up);
     }
 
     void FixedUpdate()
     {
 
-        //Old InputSystem Input
         float h = movementInput.x;
         float v = movementInput.y;
 
@@ -60,17 +63,14 @@ public class Character : MonoBehaviour
         cameraForward.y = 0f;
         cameraRight.y = 0f;
 
-        //Try not to use var for roadshows or learning code
         Vector3 desiredDirection = cameraForward * inputDirection.z + cameraRight * inputDirection.x;
 
         //Why not just pass the vector instead of breaking it up only to remake it on the other side?
         MoveThePlayer(desiredDirection);
         TurnThePlayer();
         //AnimateThePlayer(desiredDirection);
-    }
-    void CreatePlayerMovementPlane()
-    {
-        playerMovementPlane = new Plane(transform.up, transform.position + transform.up);
+
+        Debug.Log("Camera move" + cameraForward);
     }
 
     void MoveThePlayer(Vector3 desiredDirection)
@@ -82,11 +82,21 @@ public class Character : MonoBehaviour
         playerRigidbody.MovePosition(transform.position + movement);
 
     }
+    Vector3 PlaneRayIntersection(Plane plane, Ray ray)
+    {
+        float dist = 0.0f;
+        plane.Raycast(ray, out dist);
+        return ray.GetPoint(dist);
+    }
+
+    Vector3 ScreenPointToWorldPointOnPlane(Vector3 screenPoint, Plane plane, Camera camera)
+    {
+        Ray ray = camera.ScreenPointToRay(screenPoint);
+        return PlaneRayIntersection(plane, ray);
+    }
 
     void TurnThePlayer()
     {
-
-        // Old Input system
         Vector2 input = lookPosition;
 
         // Convert "input" to a Vector3 where the Y axis will be used as the Z axis
@@ -101,8 +111,18 @@ public class Character : MonoBehaviour
         }
     }
 
+    /* void AnimateThePlayer(Vector3 desiredDirection)
+    {
+        if (!playerAnimator)
+            return;
 
+        Vector3 movement = new Vector3(desiredDirection.x, 0f, desiredDirection.z);
+        float forw = Vector3.Dot(movement, transform.forward);
+        float stra = Vector3.Dot(movement, transform.right);
 
+        playerAnimator.SetFloat("Forward", forw);
+        playerAnimator.SetFloat("Strafe", stra);
+    } */
 
     //on and off checking
     private void OnEnable()

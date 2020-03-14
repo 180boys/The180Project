@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "move",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "538c2672-da81-4aed-92f4-82ba3cc58d0e",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -15,7 +15,7 @@
                 },
                 {
                     "name": "look",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "94a3e174-18fc-4823-9172-0205edd66ca0",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -104,7 +104,7 @@
                 {
                     "name": "up",
                     "id": "95858723-fbd9-41b7-892a-013388313cc9",
-                    "path": "<Keyboard>/#(W)",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -157,31 +157,64 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "1bf37f87-efab-4f98-af28-54f91f0ad762",
-                    "path": "<Mouse>/delta",
+                    "name": "Arrows",
+                    "id": "200b3d9d-27ef-4854-8ba0-56b6a04d2283",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
+                    "action": "look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "2dd652ca-61f5-42b1-a583-f9e2500eb92f",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "look",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "e36a0f4b-4ba3-4a83-9ce9-17f75dbb7797",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "eefb3ef2-42e1-4a12-984b-b4112b0992e8",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "14cecca8-3ae3-4249-9ee2-45355ca1e232",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
                     "id": "c2e05468-b81e-4c41-b8c7-9af4a5e726ef",
                     "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "accept",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a6195af2-3a7e-42b4-8b49-160af4ca2c62",
-                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
