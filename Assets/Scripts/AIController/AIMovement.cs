@@ -7,14 +7,15 @@ public class AIMovement : MonoBehaviour
     public GameObject Player;
     public GameObject Bullet;
     public GameObject BulletEmitter;
-    public float BulletForwardForce;
     public float MovementSpeed;
     public float StoppingDistance;
     public Transform target;
     public bool IsShooting;
-    public int burstCount = 3;
     public int Health;
     public float ProjectileOffset = 1.3f;
+    public float BulletSpeed = 5f;
+    public Rigidbody Bulletrigidbody;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class AIMovement : MonoBehaviour
         // if withen a certain range, follow the player
         if (Vector3.Distance(transform.position, Player.transform.position) > StoppingDistance)
         {
-            IsShooting = false;
+            //IsShooting = false;
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, MovementSpeed * Time.deltaTime);
 
         }
@@ -37,17 +38,17 @@ public class AIMovement : MonoBehaviour
         // When stopped, Shoot!
         if (Vector3.Distance(transform.position, Player.transform.position) < StoppingDistance)
         {
-            IsShooting = true;
+           // Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation );
         }
 
             transform.LookAt(Player.transform);
-
+    
         // when he dies
         if (Health == 0)
         {
-            Destroy(gameObject);
+           Destroy(gameObject);
         }
-    
+
     }
 }
 
