@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.20574394, g: 0.1965028, b: 0.2476213, a: 1}
+  m_IndirectSpecularColor: {r: 0.2090722, g: 0.19951683, b: 0.2519357, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1960,7 +1960,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 308188774}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 965399011}
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &308188774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5086,6 +5097,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 965399010}
+  - component: {fileID: 965399011}
   m_Layer: 0
   m_Name: ButtonScript
   m_TagString: Untagged
@@ -5107,6 +5119,18 @@ Transform:
   m_Father: {fileID: 2043068588}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &965399011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965399009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38cd936de0c0e6849ab55dd68369425c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &994248321
 PrefabInstance:
   m_ObjectHideFlags: 0
