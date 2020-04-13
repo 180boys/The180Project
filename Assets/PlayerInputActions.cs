@@ -57,14 +57,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""shoot"",
-                    ""type"": ""Button"",
-                    ""id"": ""a3ec5a5f-bf34-475b-90d6-ff244e99b765"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -265,28 +257,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2334e8aa-a1f2-4545-854f-7d30d920f401"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8420bc9e-5abd-4ef1-8695-8a53f9abe9ca"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -323,7 +293,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControls_accept = m_PlayerControls.FindAction("accept", throwIfNotFound: true);
         m_PlayerControls_back = m_PlayerControls.FindAction("back", throwIfNotFound: true);
         m_PlayerControls_pause = m_PlayerControls.FindAction("pause", throwIfNotFound: true);
-        m_PlayerControls_shoot = m_PlayerControls.FindAction("shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -378,7 +347,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_accept;
     private readonly InputAction m_PlayerControls_back;
     private readonly InputAction m_PlayerControls_pause;
-    private readonly InputAction m_PlayerControls_shoot;
     public struct PlayerControlsActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -388,7 +356,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @accept => m_Wrapper.m_PlayerControls_accept;
         public InputAction @back => m_Wrapper.m_PlayerControls_back;
         public InputAction @pause => m_Wrapper.m_PlayerControls_pause;
-        public InputAction @shoot => m_Wrapper.m_PlayerControls_shoot;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -413,9 +380,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @pause.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnPause;
                 @pause.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnPause;
                 @pause.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnPause;
-                @shoot.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShoot;
-                @shoot.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShoot;
-                @shoot.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnShoot;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -435,9 +399,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @pause.started += instance.OnPause;
                 @pause.performed += instance.OnPause;
                 @pause.canceled += instance.OnPause;
-                @shoot.started += instance.OnShoot;
-                @shoot.performed += instance.OnShoot;
-                @shoot.canceled += instance.OnShoot;
             }
         }
     }
@@ -467,6 +428,5 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnAccept(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
     }
 }

@@ -65,7 +65,7 @@ public class Character : MonoBehaviour
 
         Vector3 desiredDirection = cameraForward * inputDirection.z + cameraRight * inputDirection.x;
 
-        //Why not just pass the vector instead of breaking it up only to remake it on the other side?
+        //Move and turn
         MoveThePlayer(desiredDirection);
         TurnThePlayer();
         //AnimateThePlayer(desiredDirection);
