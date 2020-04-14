@@ -2,25 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIShooting : MonoBehaviour
+public class bullet : MonoBehaviour
 {
-    public GameObject BulletRigidbody;
-
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-
-    void Shoot()
+    public void OnCollisionEnter(Collision collision)
     {
-
+        Destroy(gameObject);
     }
 }

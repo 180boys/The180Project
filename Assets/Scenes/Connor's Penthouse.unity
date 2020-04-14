@@ -201,16 +201,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 567369280}
-  Bullet: {fileID: 4175070500429582792, guid: f93f72c1fb4358f44ab3428919e53b00, type: 3}
-  BulletEmitter: {fileID: 1602112810}
   MovementSpeed: 3
   StoppingDistance: 5
   target: {fileID: 567369283}
-  IsShooting: 0
   Health: 100
-  ProjectileOffset: 1.3
-  BulletSpeed: 5
-  Bulletrigidbody: {fileID: 0}
+  Bullet: {fileID: 8521519625665922872, guid: f93f72c1fb4358f44ab3428919e53b00, type: 3}
+  BulletEmitter: {fileID: 1602112811}
+  Spawnrate: 0
 --- !u!136 &117882727
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1879,13 +1876,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602112810}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0023, y: 0.13399994, z: 0.5082}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.0023, y: 0.13399994, z: 0.644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1012158915}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &1701786308
 PrefabInstance:
   m_ObjectHideFlags: 0

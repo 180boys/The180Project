@@ -5,43 +5,47 @@ using UnityEngine;
 public class AIMovement : MonoBehaviour
 {
     public GameObject Player;
-    public GameObject Bullet;
-    public GameObject BulletEmitter;
     public float MovementSpeed;
     public float StoppingDistance;
     public Transform target;
-    public bool IsShooting;
     public int Health;
-    public float ProjectileOffset = 1.3f;
-    public float BulletSpeed = 5f;
-    public Rigidbody Bulletrigidbody;
+
+    public Rigidbody Bullet;
+    public Transform BulletEmitter;
+
+    public float Spawnrate;
 
 
     // Start is called before the first frame update
     void Start()
     {
         // find the player
-        Player = GameObject.FindWithTag("Player");  
+        Player = GameObject.FindWithTag("Player");
+
+        Spawnrate = Time.time + 1.0f;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+
+        
+
         // if withen a certain range, follow the player
         if (Vector3.Distance(transform.position, Player.transform.position) > StoppingDistance)
         {
-            //IsShooting = false;
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, MovementSpeed * Time.deltaTime);
-
         }
+        transform.LookAt(Player.transform);
 
         // When stopped, Shoot!
         if (Vector3.Distance(transform.position, Player.transform.position) < StoppingDistance)
         {
-           // Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation );
-        }
+            Debug.Log("Shoot!");
+            InvokeRepeating("Shoot", 1.0f, 3.0f);
+        }   
 
-            transform.LookAt(Player.transform);
+       
     
         // when he dies
         if (Health == 0)
@@ -50,5 +54,17 @@ public class AIMovement : MonoBehaviour
         }
 
     }
-}
 
+    void Shoot()
+    {
+        if(Time.time > Spawnrate)
+        {
+            Rigidbody instance = Instantiate(Bullet, BulletEmitter.position, BulletEmitter.rotation);
+
+            instance.velocity = BulletEmitter.up * 5;
+
+            Spawnrate += 1.0f;
+        }
+    }
+
+}
