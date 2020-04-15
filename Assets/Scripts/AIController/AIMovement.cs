@@ -35,6 +35,7 @@ public class AIMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, Player.transform.position) > StoppingDistance)
         {
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, MovementSpeed * Time.deltaTime);
+            CancelInvoke("Shoot");
         }
         transform.LookAt(Player.transform);
 

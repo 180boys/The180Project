@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
+    public float lifetime = 3.0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Destroy(this.gameObject, lifetime);
     }
 
     // Update is called once per frame
@@ -20,4 +22,6 @@ public class bullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    
 }
