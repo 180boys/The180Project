@@ -4,6 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Character : MonoBehaviour
 {
@@ -18,7 +19,14 @@ public class Character : MonoBehaviour
     private Vector3 inputDirection;
     private Vector3 movement;
 
-    
+    [Header("Health")]
+    public float health;
+
+    [Header("Bullet")]
+    public Rigidbody Bullet;
+    public Transform BulletEmitter;
+    public float Spawnrate;
+
     private Plane playerMovementPlane;
     private RaycastHit floorRaycastHit;
     private Vector3 playerToMouse;
@@ -108,6 +116,19 @@ public class Character : MonoBehaviour
         {
             Quaternion newRotation = Quaternion.LookRotation(lookRot);
             playerRigidbody.MoveRotation(newRotation);
+            InvokeRepeating("Shoot", 1.0f, 3.0f);
+        }
+    }
+
+    void Shoot()
+    {
+        if (Time.time > Spawnrate)
+        {
+            Rigidbody instance = Instantiate(Bullet, BulletEmitter.position, BulletEmitter.rotation);
+
+            instance.velocity = BulletEmitter.up * 12;
+
+            Spawnrate += 1.0f;
         }
     }
 
@@ -133,6 +154,7 @@ public class Character : MonoBehaviour
     private void OnDisable()
     {
         inputAction.Disable();
+        CancelInvoke("Shoot");
     }
 }
 

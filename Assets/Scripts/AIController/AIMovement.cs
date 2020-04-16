@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Script by Connor Barker
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
