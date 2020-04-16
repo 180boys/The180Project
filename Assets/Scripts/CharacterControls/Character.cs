@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     //Setting physics and movement speed
     [Header("Physics and Movement Speed")]
     public Rigidbody playerRigidbody;
-    public float speed = 4f;
+    public float speed;
     private Vector3 inputDirection;
     private Vector3 movement;
 
@@ -25,7 +25,9 @@ public class Character : MonoBehaviour
     [Header("Bullet")]
     public Rigidbody Bullet;
     public Transform BulletEmitter;
-    public float Spawnrate;
+
+    public float Firerate = 0.3f;
+    public float Timer = 1f;
 
     private Plane playerMovementPlane;
     private RaycastHit floorRaycastHit;
@@ -116,20 +118,24 @@ public class Character : MonoBehaviour
         {
             Quaternion newRotation = Quaternion.LookRotation(lookRot);
             playerRigidbody.MoveRotation(newRotation);
-            InvokeRepeating("Shoot", 1.0f, 3.0f);
+            Invoke("Shoot", Firerate);
         }
+    }
+
+    private void Update()
+    {
+        Timer -= Time.deltaTime;
     }
 
     void Shoot()
     {
-        if (Time.time > Spawnrate)
+        if(Timer <= 0.5)
         {
             Rigidbody instance = Instantiate(Bullet, BulletEmitter.position, BulletEmitter.rotation);
-
             instance.velocity = BulletEmitter.up * 12;
-
-            Spawnrate += 1.0f;
+            Timer = 1f;
         }
+        
     }
 
     /* void AnimateThePlayer(Vector3 desiredDirection)
