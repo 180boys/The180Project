@@ -62,7 +62,7 @@ public class AIMovement : MonoBehaviour
         {
             Rigidbody instance = Instantiate(Bullet, BulletEmitter.position, BulletEmitter.rotation);
 
-            instance.velocity = BulletEmitter.up * 5;
+            instance.velocity = BulletEmitter.up * 12;
 
             Spawnrate += 1.0f;
         }
