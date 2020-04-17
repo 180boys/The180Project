@@ -24,7 +24,7 @@ public class AIMovement : MonoBehaviour
         // find the player
         Player = GameObject.FindWithTag("Player");
 
-        Spawnrate = Time.time + 1.0f;
+        Spawnrate = 1.0f;
     }
 
     // Update is called once per frame
@@ -45,7 +45,8 @@ public class AIMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, Player.transform.position) < StoppingDistance)
         {
             Debug.Log("Shoot!");
-            InvokeRepeating("Shoot", 1.0f, 3.0f);
+            Spawnrate -= Time.deltaTime;
+            InvokeRepeating("Shoot", 1.0f, 1.0f);
         }   
 
        
@@ -66,7 +67,9 @@ public class AIMovement : MonoBehaviour
 
             instance.velocity = BulletEmitter.up * 12;
 
-            Spawnrate += 1.0f;
+            CancelInvoke("Shoot");
+
+            Spawnrate = 1.0f;
         }
     }
 

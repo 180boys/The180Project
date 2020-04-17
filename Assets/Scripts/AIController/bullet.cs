@@ -20,7 +20,10 @@ public class bullet : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Environment")
+        {
+            Destroy(gameObject);
+        }
     }
 
     
