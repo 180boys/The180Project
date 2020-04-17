@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet : MonoBehaviour
+public class PlayerBullet : MonoBehaviour
 {
+
     public float lifetime = 3.0f;
 
     // Start is called before the first frame update
@@ -20,21 +21,14 @@ public class bullet : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
+
         if (collision.gameObject.tag == "Environment")
         {
             Destroy(gameObject);
         }
-
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
-        }
-
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);
-        }
     }
-
-    
 }

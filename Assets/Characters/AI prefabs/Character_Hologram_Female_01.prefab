@@ -1585,7 +1585,7 @@ GameObject:
   - component: {fileID: 6016204734732920777}
   m_Layer: 0
   m_Name: Character_Hologram_Female_01
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1690,7 +1690,7 @@ MonoBehaviour:
   MovementSpeed: 4
   StoppingDistance: 10
   target: {fileID: 0}
-  Health: 100
+  Health: 40
   Bullet: {fileID: 8521519625665922872, guid: f93f72c1fb4358f44ab3428919e53b00, type: 3}
   BulletEmitter: {fileID: 6016204733789345980}
   Spawnrate: 1

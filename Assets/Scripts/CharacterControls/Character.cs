@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
     private Vector3 movement;
 
     [Header("Health")]
-    public float health;
+    public float Health;
 
     [Header("Bullet")]
     public Rigidbody Bullet;
@@ -125,6 +125,24 @@ public class Character : MonoBehaviour
     private void Update()
     {
         Timer -= Time.deltaTime;
+
+        if (Health <= 0)
+        {
+            Invoke("GameOver", 0.1f);
+        }
+    }
+
+    public void GameOver()
+    {     
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single); 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "AIBullet")
+        {
+            Health -= 10;
+        }
     }
 
     void Shoot()

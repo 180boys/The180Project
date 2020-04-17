@@ -29,9 +29,8 @@ public class AIMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
 
-        
 
         // if withen a certain range, follow the player
         if (Vector3.Distance(transform.position, Player.transform.position) > StoppingDistance)
@@ -47,17 +46,25 @@ public class AIMovement : MonoBehaviour
             Debug.Log("Shoot!");
             Spawnrate -= Time.deltaTime;
             InvokeRepeating("Shoot", 1.0f, 1.0f);
-        }   
+        }
 
-       
-    
+
         // when he dies
-        if (Health == 0)
+        if (Health <= 0)
         {
-           Destroy(gameObject);
+            Destroy(gameObject);
         }
 
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "PlayerBullet")
+        {
+            Health -= 20;
+        }
+    }
+
 
     void Shoot()
     {
