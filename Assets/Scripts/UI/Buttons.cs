@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
-    public void StartGame()
+    public void ConnorLevel()
     {
         SceneManager.LoadScene("LevelDesign", LoadSceneMode.Single);
+
+    }
+
+    public void EvanLevel()
+    {
+        SceneManager.LoadScene("EvansBonusLevel", LoadSceneMode.Single);
 
     }
 }

@@ -74,9 +74,11 @@ public class AIMovement : MonoBehaviour
 
             instance.velocity = BulletEmitter.up * 12;
 
+            Spawnrate = 1.0f;
+
             CancelInvoke("Shoot");
 
-            Spawnrate = 1.0f;
+           
         }
     }
 
