@@ -54744,6 +54744,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -746543848302535604, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1558498797820598917, guid: a9e99af3afaa3df49bae0f86e27b2366,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -54845,6 +54850,11 @@ PrefabInstance:
       propertyPath: Health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1562810931285428980, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: Hit
+      value: 
+      objectReference: {fileID: 1863995956}
     - target: {fileID: 1564439908371456261, guid: a9e99af3afaa3df49bae0f86e27b2366,
         type: 3}
       propertyPath: m_Name
@@ -56633,6 +56643,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be3d7781242d5f34bbc4a55e5066da00, type: 3}
+--- !u!82 &1863995956 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -746543848302535604, guid: a9e99af3afaa3df49bae0f86e27b2366,
+    type: 3}
+  m_PrefabInstance: {fileID: 1788441072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1867218830
 PrefabInstance:
   m_ObjectHideFlags: 0

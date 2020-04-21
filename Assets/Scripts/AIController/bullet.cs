@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Script by: Connor Barker 1017568
+
 public class bullet : MonoBehaviour
 {
     public float lifetime = 3.0f;
