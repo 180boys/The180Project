@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Script by: Connor Barker 1017568
+
 public class AIMovement : MonoBehaviour
 {
     public GameObject Player;
@@ -11,6 +14,10 @@ public class AIMovement : MonoBehaviour
     public float StoppingDistance;
     public Transform target;
     public int Health;
+
+    public AudioSource Hit;
+    public AudioSource Dead;
+    public AudioSource Bang;
 
     public Rigidbody Bullet;
     public Transform BulletEmitter;
@@ -52,6 +59,8 @@ public class AIMovement : MonoBehaviour
         // when he dies
         if (Health <= 0)
         {
+            Dead.Play();
+
             Destroy(gameObject);
         }
 
@@ -61,6 +70,7 @@ public class AIMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerBullet")
         {
+            Hit.Play();
             Health -= 20;
         }
     }
@@ -70,6 +80,8 @@ public class AIMovement : MonoBehaviour
     {
         if(Time.time > Spawnrate)
         {
+            Bang.Play();
+
             Rigidbody instance = Instantiate(Bullet, BulletEmitter.position, BulletEmitter.rotation);
 
             instance.velocity = BulletEmitter.up * 12;

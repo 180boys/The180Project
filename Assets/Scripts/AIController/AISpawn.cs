@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// script by: Connor Barker 1017568
+
 public class AISpawn : MonoBehaviour
 {
     public float timer = 30f;

@@ -25,9 +25,12 @@ public class Character : MonoBehaviour
     [Header("Bullet")]
     public Rigidbody Bullet;
     public Transform BulletEmitter;
-
     public float Firerate = 0.3f;
     public float Timer = 1f;
+
+    [Header("SFX")]
+    public AudioSource Hit;
+    public AudioSource Bang;
 
     private Plane playerMovementPlane;
     private RaycastHit floorRaycastHit;
@@ -141,6 +144,8 @@ public class Character : MonoBehaviour
     {
         if (collision.gameObject.tag == "AIBullet")
         {
+            Debug.Log("get hit");
+            Hit.Play();
             Health -= 10;
         }
     }
@@ -149,6 +154,7 @@ public class Character : MonoBehaviour
     {
         if(Timer <= 0.5)
         {
+            Bang.Play();
             Rigidbody instance = Instantiate(Bullet, BulletEmitter.position, BulletEmitter.rotation);
             instance.velocity = BulletEmitter.up * 12;
             Timer = 1f;
