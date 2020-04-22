@@ -31,6 +31,7 @@ public class Character : MonoBehaviour
     [Header("SFX")]
     public AudioSource Hit;
     public AudioSource Bang;
+    //public AudioSource Walk; //NOTE: use for later maybe. walk sfx bugs
 
     private Plane playerMovementPlane;
     private RaycastHit floorRaycastHit;
@@ -88,6 +89,7 @@ public class Character : MonoBehaviour
 
     void MoveThePlayer(Vector3 desiredDirection)
     {
+        //Walk.Play();
         movement.Set(desiredDirection.x, 0f, desiredDirection.z);
 
         movement = movement * speed * Time.deltaTime;
