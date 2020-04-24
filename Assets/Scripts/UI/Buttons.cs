@@ -16,4 +16,16 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadScene("EvansBonusLevel", LoadSceneMode.Single);
 
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
+    public void Quit()
+    {
+        Debug.Log("Ded");
+        Application.Quit();
+    }
 }
+

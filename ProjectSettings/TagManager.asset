@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - AIBullet
   - PlayerBullet
+  - Pickup
   layers:
   - Default
   - TransparentFX

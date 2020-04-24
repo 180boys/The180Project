@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuitScript : MonoBehaviour
+public class HUD : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
