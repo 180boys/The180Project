@@ -29,6 +29,7 @@ public class Character : MonoBehaviour
     public float Timer = 1f;
     public bool bulletTime = false;
     public float bulletTimer = 10f;
+    public float BulletSpeed = 12f;
 
     [Header("SFX")]
     public AudioSource Hit;
@@ -174,7 +175,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("weapon speed");
             Destroy(collision.gameObject);
-            Firerate = 0.6f;
+            Firerate = BulletSpeed * 2;
             bulletTime = true;
         }
         
@@ -186,7 +187,7 @@ public class Character : MonoBehaviour
         {
             Bang.Play();
             Rigidbody instance = Instantiate(Bullet, BulletEmitter.position, BulletEmitter.rotation);
-            instance.velocity = BulletEmitter.up * 12;
+            instance.velocity = BulletEmitter.up * BulletSpeed;
             Timer = 1f;
         }
         
