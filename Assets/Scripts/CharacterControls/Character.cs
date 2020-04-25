@@ -11,25 +11,34 @@ public class Character : MonoBehaviour
     //Set camera to focus on player here
     [Header("Camera")]
     public Camera mainCamera;
+    [Space]
 
     //Setting physics and movement speed
     [Header("Physics and Movement Speed")]
     public Rigidbody playerRigidbody;
-    public float speed;
+    public float speed = 6f;
+    public bool movementTime;
+    public float movementTimer;
     private Vector3 inputDirection;
     private Vector3 movement;
+    [Space]
 
-    [Header("Health")]
+    [Header("HP")]
     public float Health;
+    [Space]
 
     [Header("Bullet")]
     public Rigidbody Bullet;
     public Transform BulletEmitter;
     public float Firerate = 0.3f;
     public float Timer = 1f;
+    [Space]
+
+    [Header("BulletPickup")]
     public bool bulletTime = false;
     public float bulletTimer = 10f;
     public float BulletSpeed = 12f;
+    [Space]
 
     [Header("SFX")]
     public AudioSource Hit;
@@ -138,7 +147,7 @@ public class Character : MonoBehaviour
                 bulletTimer -= Time.deltaTime;
         }
 
-        //bullettime cont
+        //bullet
         //resetting
         if (bulletTimer <= 0)
         {
@@ -147,12 +156,37 @@ public class Character : MonoBehaviour
             bulletTimer = 10f;
         }
 
+        //movementTimer
+        if (movementTime == true)
+        {
+            movementTimer -= Time.deltaTime;
+        }
+
+        //movement
+        //resetting
+        if (movementTimer <= 0)
+        {
+            movementTime = false;
+            speed = 6;
+            movementTimer = 6f;
+        }
+
+        //Shoot timer
         Timer -= Time.deltaTime;
 
+        //dead. sends to death scene
         if (Health <= 0)
         {
             Invoke("GameOver", 0.1f);
         }
+
+        //sets health back to 100, if you gain more than 101
+        if (Health >= 101)
+        {
+            Health = 100;
+        }
+
+
     }
 
     public void GameOver()
@@ -170,6 +204,7 @@ public class Character : MonoBehaviour
             Health -= 10;
         }
         //bullettime pickup
+        //buffs are set here
         if (collision.gameObject.tag == "BulletPickup")
         {
             Debug.Log("weapon speed");
@@ -179,12 +214,23 @@ public class Character : MonoBehaviour
         }
 
         //walkingspeed pickup
-        if (collision.gameObject.tag == "BulletPickup")
+        //buffs are set here
+        if (collision.gameObject.tag == "MovementPickup")
         {
-            Debug.Log("weapon speed");
+            Debug.Log("move speed");
             Destroy(collision.gameObject);
-            BulletSpeed = 16f;
-            bulletTime = true;
+            speed = 12f;
+            movementTime = true;
+            
+        }
+
+        //healthpickup. basic, just have to add 20hp
+        if (collision.gameObject.tag == "HealthPickup")
+        {
+            Debug.Log("+20");
+            Destroy(collision.gameObject);
+            Health += 20;
+
         }
 
     }
