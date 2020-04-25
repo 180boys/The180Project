@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// Script by: Connor Barker 1017568
+// Script by: Connor 1017568
 
 public class PlayerBullet : MonoBehaviour
 {

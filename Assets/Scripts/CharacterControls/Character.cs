@@ -1,4 +1,4 @@
-﻿//Script by Evan Waters: 1017144
+﻿//Script by Evan: 1017144
 //T120
 
 using System.Collections;
@@ -27,6 +27,8 @@ public class Character : MonoBehaviour
     public Transform BulletEmitter;
     public float Firerate = 0.3f;
     public float Timer = 1f;
+    public bool bulletTime = false;
+    public float bulletTimer = 10f;
 
     [Header("SFX")]
     public AudioSource Hit;
@@ -129,6 +131,22 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
+        //bulletTimer
+        if (bulletTime == true)
+        {
+                bulletTimer -= Time.deltaTime;
+        }
+
+        //bullettime cont
+        //resetting
+        if (bulletTimer <= 0)
+        {
+            bulletTime = false;
+            Firerate = 0.3f;
+            bulletTimer = 10f;
+
+        }
+
         Timer -= Time.deltaTime;
 
         if (Health <= 0)
@@ -142,14 +160,24 @@ public class Character : MonoBehaviour
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single); 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
+        //ai bullet
         if (collision.gameObject.tag == "AIBullet")
         {
             Debug.Log("get hit");
             Hit.Play();
             Health -= 10;
         }
+        //bullettime
+        if (collision.gameObject.tag == "BulletPickup")
+        {
+            Debug.Log("weapon speed");
+            Destroy(collision.gameObject);
+            Firerate = 0.6f;
+            bulletTime = true;
+        }
+        
     }
 
     void Shoot()

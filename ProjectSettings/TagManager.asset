@@ -8,7 +8,9 @@ TagManager:
   - Enemy
   - AIBullet
   - PlayerBullet
-  - Pickup
+  - HealthPickup
+  - BulletPickup
+  - MovementPickup
   layers:
   - Default
   - TransparentFX
