@@ -143,9 +143,8 @@ public class Character : MonoBehaviour
         if (bulletTimer <= 0)
         {
             bulletTime = false;
-            Firerate = 0.3f;
+            BulletSpeed = 12;
             bulletTimer = 10f;
-
         }
 
         Timer -= Time.deltaTime;
@@ -170,15 +169,24 @@ public class Character : MonoBehaviour
             Hit.Play();
             Health -= 10;
         }
-        //bullettime
+        //bullettime pickup
         if (collision.gameObject.tag == "BulletPickup")
         {
             Debug.Log("weapon speed");
             Destroy(collision.gameObject);
-            Firerate = BulletSpeed * 2;
+            BulletSpeed = 16f;
             bulletTime = true;
         }
-        
+
+        //walkingspeed pickup
+        if (collision.gameObject.tag == "BulletPickup")
+        {
+            Debug.Log("weapon speed");
+            Destroy(collision.gameObject);
+            BulletSpeed = 16f;
+            bulletTime = true;
+        }
+
     }
 
     void Shoot()
