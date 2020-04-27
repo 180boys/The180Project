@@ -50,7 +50,7 @@ public class Character : MonoBehaviour
     private Vector3 playerToMouse;
 
     [Header("Animation")]
-    //public Animator playerAnimator;
+    public Animator playerAnimator;
 
     //inputs
     Vector2 movementInput;
@@ -108,6 +108,8 @@ public class Character : MonoBehaviour
 
         playerRigidbody.MovePosition(transform.position + movement);
 
+       
+
     }
     Vector3 PlaneRayIntersection(Plane plane, Ray ray)
     {
@@ -152,7 +154,7 @@ public class Character : MonoBehaviour
         if (bulletTimer <= 0)
         {
             bulletTime = false;
-            BulletSpeed = 12;
+            BulletSpeed = 25;
             bulletTimer = 10f;
         }
 
@@ -209,7 +211,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("weapon speed");
             Destroy(collision.gameObject);
-            BulletSpeed = 16f;
+            BulletSpeed = 50f;
             bulletTime = true;
         }
 
@@ -264,12 +266,19 @@ public class Character : MonoBehaviour
     private void OnEnable()
     {
         inputAction.Enable();
+
+        PlayerAnimations();
     }
 
     private void OnDisable()
     {
         inputAction.Disable();
         CancelInvoke("Shoot");
+    }
+
+    public void PlayerAnimations()
+    {
+        playerAnimator.SetBool("IsRunning", true);
     }
 }
 

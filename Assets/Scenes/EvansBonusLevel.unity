@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1796326834}
-  m_IndirectSpecularColor: {r: 0.20475852, g: 0.19536856, b: 0.24622282, a: 1}
+  m_IndirectSpecularColor: {r: 0.23224396, g: 0.22376582, b: 0.30216968, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -93190,6 +93190,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 9f35f83c3fd2aa84484550394e5f3f52,
         type: 2}
+    - target: {fileID: 1505675579269236545, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b8aa567e78b81804ea416c4faef42863, type: 2}
     - target: {fileID: 1558498797820598917, guid: a9e99af3afaa3df49bae0f86e27b2366,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -93244,6 +93249,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558584210118333743, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.36370012
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558584210118333743, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.29005936
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558584210118333743, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.016075365
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558584210118333743, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.885059
       objectReference: {fileID: 0}
     - target: {fileID: 1562810931285428980, guid: a9e99af3afaa3df49bae0f86e27b2366,
         type: 3}
@@ -93301,6 +93326,11 @@ PrefabInstance:
       propertyPath: bulletTimer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1562810931285428980, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: BulletSpeed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1562810931285428981, guid: a9e99af3afaa3df49bae0f86e27b2366,
         type: 3}
       propertyPath: m_Height
@@ -93345,6 +93375,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.436
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567155107307049613, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.032282908
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567155107307049613, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.05733052
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567155107307049613, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.48959675
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567155107307049613, guid: a9e99af3afaa3df49bae0f86e27b2366,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.869463
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9e99af3afaa3df49bae0f86e27b2366, type: 3}
@@ -97080,6 +97130,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HudAndButtons
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613925157677726238, guid: 2eb3dd01fa9b1ac469ea5760d3213ac4,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613925158142766868, guid: 2eb3dd01fa9b1ac469ea5760d3213ac4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613925158153757430, guid: 2eb3dd01fa9b1ac469ea5760d3213ac4,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2eb3dd01fa9b1ac469ea5760d3213ac4, type: 3}
