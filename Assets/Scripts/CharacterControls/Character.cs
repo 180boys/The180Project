@@ -68,12 +68,6 @@ public class Character : MonoBehaviour
 
     PlayerInputActions inputAction;
 
-    public AIMovement AIScript;
-
-    public GameObject spawnings;
-    public GameObject BossSpawn;
-
-
     void Awake()
     {
         CreatePlayerMovementPlane();
@@ -158,16 +152,6 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-        //counter from aiscript
-        EnemyBar.fillAmount = AIScript.EnemyCount /20;
-
-        if (AIScript.EnemyCount == 20)
-        {
-            spawnings.SetActive(false);
-            BossSpawn.SetActive(true);
-
-        }
-
         //HP bar
         HPBar.fillAmount = Health /100;
 

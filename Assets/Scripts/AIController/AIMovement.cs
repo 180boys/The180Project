@@ -14,7 +14,7 @@ public class AIMovement : MonoBehaviour
     public float MovementSpeed;
     public float StoppingDistance;
     public Transform target;
-    public int Health = 40;
+    public int Health;
 
     public AudioSource Hit;
     public AudioSource Dead;
@@ -55,11 +55,9 @@ public class AIMovement : MonoBehaviour
             InvokeRepeating("Shoot", 1.0f, 1.0f);
         }
 
-
         // when he dies
         if (Health <= 0)
         {
-            EnemyCount += 1;
             Dead.Play();
             Destroy(gameObject);
         }
@@ -89,9 +87,7 @@ public class AIMovement : MonoBehaviour
             Spawnrate = 1.0f;
 
             CancelInvoke("Shoot");
-
-           
+                      
         }
     }
-
 }

@@ -95327,7 +95327,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: a8555c0cff30527479e32562cef9141f, type: 2}
     - target: {fileID: 1558498797820598917, guid: a9e99af3afaa3df49bae0f86e27b2366,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -95528,7 +95528,7 @@ PrefabInstance:
         type: 3}
       propertyPath: AIScript
       value: 
-      objectReference: {fileID: 1932092414}
+      objectReference: {fileID: 0}
     - target: {fileID: 1562810931285428981, guid: a9e99af3afaa3df49bae0f86e27b2366,
         type: 3}
       propertyPath: m_Height
