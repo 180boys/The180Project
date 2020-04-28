@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 // Script by: Connor Barker 1017568
 
 public class AIMovement : MonoBehaviour
@@ -24,6 +25,7 @@ public class AIMovement : MonoBehaviour
 
     public float Spawnrate;
 
+    public int EnemyCount;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +39,6 @@ public class AIMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         // if withen a certain range, follow the player
         if (Vector3.Distance(transform.position, Player.transform.position) > StoppingDistance)
         {
@@ -59,8 +59,8 @@ public class AIMovement : MonoBehaviour
         // when he dies
         if (Health <= 0)
         {
+            EnemyCount += 1;
             Dead.Play();
-
             Destroy(gameObject);
         }
 
@@ -71,10 +71,10 @@ public class AIMovement : MonoBehaviour
         if (collision.gameObject.tag == "PlayerBullet")
         {
             Hit.Play();
+
             Health -= 20;
         }
     }
-
 
     void Shoot()
     {

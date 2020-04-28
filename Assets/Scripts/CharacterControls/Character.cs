@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -42,8 +43,10 @@ public class Character : MonoBehaviour
 
     [Header("SFX")]
     public AudioSource Hit;
-    public AudioSource Bang;
-    //public AudioSource Walk; //NOTE: use for later maybe. walk sfx bugs
+    public AudioSource Shooting;
+    public AudioSource HealthUp;
+    public AudioSource BulletUp;
+    public AudioSource MoveUp;
 
     private Plane playerMovementPlane;
     private RaycastHit floorRaycastHit;
@@ -52,11 +55,23 @@ public class Character : MonoBehaviour
     [Header("Animation")]
     public Animator playerAnimator;
 
+    [Header("HUD Links")]
+    public Image HPBar;
+    public Image MovementBar;
+    public Image ShootBar;
+    public Image EnemyBar;
+    public Image BossBar;
+
     //inputs
     Vector2 movementInput;
     Vector2 lookPosition;
 
     PlayerInputActions inputAction;
+
+    public AIMovement AIScript;
+
+    public GameObject spawnings;
+    public GameObject BossSpawn;
 
 
     void Awake()
@@ -143,10 +158,25 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
+        //counter from aiscript
+        EnemyBar.fillAmount = AIScript.EnemyCount /20;
+
+        if (AIScript.EnemyCount == 20)
+        {
+            spawnings.SetActive(false);
+            BossSpawn.SetActive(true);
+
+        }
+
+        //HP bar
+        HPBar.fillAmount = Health /100;
+
         //bulletTimer
         if (bulletTime == true)
         {
-                bulletTimer -= Time.deltaTime;
+            bulletTimer -= Time.deltaTime;
+            //bulletTimer converted to bar
+            ShootBar.fillAmount = bulletTimer / 10;
         }
 
         //bullet
@@ -156,12 +186,15 @@ public class Character : MonoBehaviour
             bulletTime = false;
             BulletSpeed = 25;
             bulletTimer = 10f;
+            ShootBar.fillAmount = 0;
         }
 
         //movementTimer
         if (movementTime == true)
         {
             movementTimer -= Time.deltaTime;
+            //muvetimer converted to bar
+            MovementBar.fillAmount = movementTimer / 6;
         }
 
         //movement
@@ -169,6 +202,7 @@ public class Character : MonoBehaviour
         if (movementTimer <= 0)
         {
             movementTime = false;
+            gameObject.GetComponent<TrailRenderer>().enabled = false;
             speed = 6;
             movementTimer = 6f;
         }
@@ -211,6 +245,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("weapon speed");
             Destroy(collision.gameObject);
+            BulletUp.Play();
             BulletSpeed = 50f;
             bulletTime = true;
         }
@@ -221,6 +256,8 @@ public class Character : MonoBehaviour
         {
             Debug.Log("move speed");
             Destroy(collision.gameObject);
+            MoveUp.Play();
+            gameObject.GetComponent<TrailRenderer>().enabled = true;
             speed = 12f;
             movementTime = true;
             
@@ -231,6 +268,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("+20");
             Destroy(collision.gameObject);
+            HealthUp.Play();
             Health += 20;
 
         }
@@ -241,7 +279,7 @@ public class Character : MonoBehaviour
     {
         if(Timer <= 0.5)
         {
-            Bang.Play();
+            Shooting.Play();
             Rigidbody instance = Instantiate(Bullet, BulletEmitter.position, BulletEmitter.rotation);
             instance.velocity = BulletEmitter.up * BulletSpeed;
             Timer = 1f;
@@ -280,5 +318,6 @@ public class Character : MonoBehaviour
     {
         playerAnimator.SetBool("IsRunning", true);
     }
+ 
 }
 

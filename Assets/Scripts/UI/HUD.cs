@@ -22,9 +22,9 @@ public class HUD : MonoBehaviour
     void Start()
     {
         ////Calls whatever I need from Character script
-        //GameObject Player = GameObject.Find("MAINCHARACTER");
-        //Character Character = Player.GetComponent<Character>();
-        //Character.Health -= HPpercentage;
+        GameObject Player = GameObject.Find("MAINCHARACTER");
+        Character Character = Player.GetComponent<Character>();
+        Character.Health -= HPpercentage;
 
         //For HP Bar conversion
         if (HPBar != null)
