@@ -14,7 +14,7 @@ public class AIMovement : MonoBehaviour
     public float MovementSpeed;
     public float StoppingDistance;
     public Transform target;
-    public int Health;
+    public int Health = 40;
 
     public AudioSource Hit;
     public AudioSource Dead;
