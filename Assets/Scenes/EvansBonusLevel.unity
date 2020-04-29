@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1796326834}
-  m_IndirectSpecularColor: {r: 0.23228562, g: 0.22365794, b: 0.3020333, a: 1}
+  m_IndirectSpecularColor: {r: 0.23224396, g: 0.22376582, b: 0.30216968, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21590,6 +21590,11 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4736139186425968146, guid: c43a8035b8a6f9c4085e2dc19b6dfa11,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3019219567401802981, guid: c43a8035b8a6f9c4085e2dc19b6dfa11,
         type: 3}
       propertyPath: BypassReverbZones
@@ -21600,10 +21605,15 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3019219567401802981, guid: c43a8035b8a6f9c4085e2dc19b6dfa11,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1695047114060127993, guid: c43a8035b8a6f9c4085e2dc19b6dfa11,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1695047114060127993, guid: c43a8035b8a6f9c4085e2dc19b6dfa11,
         type: 3}
@@ -21623,7 +21633,7 @@ PrefabInstance:
     - target: {fileID: 2961997186963735643, guid: c43a8035b8a6f9c4085e2dc19b6dfa11,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2961997186963735646, guid: c43a8035b8a6f9c4085e2dc19b6dfa11,
         type: 3}
@@ -21680,7 +21690,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2961997186963735642, guid: c43a8035b8a6f9c4085e2dc19b6dfa11, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c43a8035b8a6f9c4085e2dc19b6dfa11, type: 3}
 --- !u!4 &488866315 stripped
 Transform:
@@ -59219,6 +59230,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1318523043}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1320295993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2961997186963735643, guid: c43a8035b8a6f9c4085e2dc19b6dfa11,
+    type: 3}
+  m_PrefabInstance: {fileID: 487648596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1320295994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320295993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30843be1805b3554195f43a5031efea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1498727117}
+  MovementSpeed: 5
+  StoppingDistance: 10
+  target: {fileID: 1010254479}
+  Health: 200
+  Hit: {fileID: 0}
+  Dead: {fileID: 0}
+  Bang: {fileID: 0}
+  Bullet: {fileID: 0}
+  BulletEmitter: {fileID: 0}
+  Spawnrate: 0
 --- !u!4 &1320385501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4690976350676436, guid: 2974555caa7a6704eb8f549d99367f35,
