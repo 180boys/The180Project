@@ -25,8 +25,6 @@ public class AIMovement : MonoBehaviour
 
     public float Spawnrate;
 
-    public int EnemyCount;
-
     // Start is called before the first frame update
     void Start()
     {

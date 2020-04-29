@@ -62,6 +62,8 @@ public class Character : MonoBehaviour
     public Image EnemyBar;
     public Image BossBar;
 
+    public float EnemyCounter;
+
     //inputs
     Vector2 movementInput;
     Vector2 lookPosition;
@@ -152,6 +154,11 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
+        EnemyCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        //Counter bar
+        EnemyBar.fillAmount = EnemyCounter /20;
+
         //HP bar
         HPBar.fillAmount = Health /100;
 
