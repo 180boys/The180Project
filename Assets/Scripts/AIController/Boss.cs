@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
@@ -8,7 +10,7 @@ public class Boss : MonoBehaviour
     public float MovementSpeed;
     public float StoppingDistance;
     public Transform target;
-    public int Health;
+    public float BossHealth;
 
     public AudioSource Hit;
     public AudioSource Dead;
@@ -18,6 +20,8 @@ public class Boss : MonoBehaviour
     public Transform BulletEmitter;
 
     public float Spawnrate;
+
+    public Image BossBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,9 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        BossBar.fillAmount = BossHealth /200;
+
         // if withen a certain range, follow the player
         if (Vector3.Distance(transform.position, Player.transform.position) > StoppingDistance)
         {
@@ -47,11 +54,16 @@ public class Boss : MonoBehaviour
         }
 
         // when he dies
-        if (Health <= 0)
+        if (BossHealth <= 0)
         {
             Dead.Play();
             Destroy(gameObject);
         }
+    }
+
+    public void Victory ()
+    {
+        //victory screen
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -60,7 +72,7 @@ public class Boss : MonoBehaviour
         {
             Hit.Play();
 
-            Health -= 20;
+            BossHealth -= 20;
         }
     }
 

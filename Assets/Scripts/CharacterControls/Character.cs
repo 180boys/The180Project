@@ -60,9 +60,11 @@ public class Character : MonoBehaviour
     public Image MovementBar;
     public Image ShootBar;
     public Image EnemyBar;
-    public Image BossBar;
 
     public float EnemyCounter;
+
+    [Header("Boss goes here")]
+    public GameObject BossMan;
 
     //inputs
     Vector2 movementInput;
@@ -119,7 +121,7 @@ public class Character : MonoBehaviour
 
         playerRigidbody.MovePosition(transform.position + movement);
 
-       
+
 
     }
     Vector3 PlaneRayIntersection(Plane plane, Ray ray)
@@ -157,10 +159,10 @@ public class Character : MonoBehaviour
         EnemyCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
         //Counter bar
-        EnemyBar.fillAmount = EnemyCounter /20;
+        EnemyBar.fillAmount = EnemyCounter / 20;
 
         //HP bar
-        HPBar.fillAmount = Health /100;
+        HPBar.fillAmount = Health / 100;
 
         //bulletTimer
         if (bulletTime == true)
@@ -217,8 +219,8 @@ public class Character : MonoBehaviour
     }
 
     public void GameOver()
-    {     
-        SceneManager.LoadScene("GameOver", LoadSceneMode.Single); 
+    {
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -251,7 +253,7 @@ public class Character : MonoBehaviour
             gameObject.GetComponent<TrailRenderer>().enabled = true;
             speed = 12f;
             movementTime = true;
-            
+
         }
 
         //healthpickup. basic, just have to add 20hp
@@ -262,6 +264,15 @@ public class Character : MonoBehaviour
             HealthUp.Play();
             Health += 20;
 
+        }
+
+    }
+
+    void BossTrigger()
+    {
+        if(EnemyCounter == 0)
+        {
+            BossMan.SetActive(true);
         }
 
     }
