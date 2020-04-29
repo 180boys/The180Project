@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EvansBonusLevel.unity
     guid: cfe5871da717416419e843d4d9fa8dd7
+  - enabled: 1
+    path: Assets/Scenes/VictoryScreen.unity
+    guid: e9370cddfdb27aa488730aa598a9612c
   m_configObjects: {}

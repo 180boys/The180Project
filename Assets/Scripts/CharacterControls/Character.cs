@@ -65,6 +65,10 @@ public class Character : MonoBehaviour
 
     [Header("Boss goes here")]
     public GameObject BossMan;
+    public GameObject BossBar;
+    public GameObject BossBG;
+    public GameObject EneBar;
+    public GameObject EneBG;
 
     //inputs
     Vector2 movementInput;
@@ -121,8 +125,6 @@ public class Character : MonoBehaviour
 
         playerRigidbody.MovePosition(transform.position + movement);
 
-
-
     }
     Vector3 PlaneRayIntersection(Plane plane, Ray ray)
     {
@@ -150,13 +152,21 @@ public class Character : MonoBehaviour
         {
             Quaternion newRotation = Quaternion.LookRotation(lookRot);
             playerRigidbody.MoveRotation(newRotation);
+
+            //shooting
             Invoke("Shoot", Firerate);
+
         }
     }
 
     private void Update()
     {
         EnemyCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        if (EnemyCounter == 0)
+        {
+            BossTrigger();
+        }
 
         //Counter bar
         EnemyBar.fillAmount = EnemyCounter / 20;
@@ -270,23 +280,23 @@ public class Character : MonoBehaviour
 
     void BossTrigger()
     {
-        if(EnemyCounter == 0)
-        {
-            BossMan.SetActive(true);
-        }
-
+        BossMan.SetActive(true);
+        BossBar.SetActive(true);
+        BossBG.SetActive(true);
+        EneBar.SetActive(false);
+        EneBG.SetActive(false);
     }
 
     void Shoot()
     {
-        if(Timer <= 0.5)
+        if (Timer <= 0.5)
         {
             Shooting.Play();
             Rigidbody instance = Instantiate(Bullet, BulletEmitter.position, BulletEmitter.rotation);
             instance.velocity = BulletEmitter.up * BulletSpeed;
             Timer = 1f;
         }
-        
+
     }
 
     /* void AnimateThePlayer(Vector3 desiredDirection)
@@ -303,23 +313,25 @@ public class Character : MonoBehaviour
     } */
 
     //on and off checking
-    private void OnEnable()
+    public void OnEnable()
     {
         inputAction.Enable();
 
-        PlayerAnimations();
+        //animations for running
+        playerAnimator.SetBool("IsRunning", true);
+        playerAnimator.SetBool("IsIdle", false);
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         inputAction.Disable();
+
+        //idle animations
+        playerAnimator.SetBool("IsRunning", false);
+        playerAnimator.SetBool("IsIdle", true);
+
         CancelInvoke("Shoot");
     }
 
-    public void PlayerAnimations()
-    {
-        playerAnimator.SetBool("IsRunning", true);
-    }
- 
 }
 

@@ -33,5 +33,10 @@ public class PlayerBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "Boss")
+        {
+            Destroy(gameObject);
+        }
     }
 }

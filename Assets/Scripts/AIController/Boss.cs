@@ -57,13 +57,10 @@ public class Boss : MonoBehaviour
         if (BossHealth <= 0)
         {
             Dead.Play();
+            //victory screen
+            SceneManager.LoadScene("VictoryScreen", LoadSceneMode.Single);
             Destroy(gameObject);
         }
-    }
-
-    public void Victory ()
-    {
-        //victory screen
     }
 
     private void OnCollisionEnter(Collision collision)
