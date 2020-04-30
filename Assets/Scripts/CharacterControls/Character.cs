@@ -125,6 +125,10 @@ public class Character : MonoBehaviour
 
         playerRigidbody.MovePosition(transform.position + movement);
 
+        //animations for running
+        playerAnimator.SetBool("IsRunning", true);
+        playerAnimator.SetBool("IsIdle", false);
+
     }
     Vector3 PlaneRayIntersection(Plane plane, Ray ray)
     {
@@ -316,10 +320,6 @@ public class Character : MonoBehaviour
     public void OnEnable()
     {
         inputAction.Enable();
-
-        //animations for running
-        playerAnimator.SetBool("IsRunning", true);
-        playerAnimator.SetBool("IsIdle", false);
     }
 
     public void OnDisable()

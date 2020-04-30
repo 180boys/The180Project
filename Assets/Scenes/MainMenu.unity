@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.2064876, g: 0.19706672, b: 0.24840868, a: 1}
+  m_IndirectSpecularColor: {r: 0.20810392, g: 0.19856149, b: 0.25067055, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -26610,7 +26610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Alpha Build: 0.11:010'
+  m_text: 'Build: 1.0 FINAL'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7947885cbdb6c8949b588ca5d897b5ee, type: 2}
   m_sharedMaterial: {fileID: 212579666258450048, guid: 7947885cbdb6c8949b588ca5d897b5ee,
@@ -26656,7 +26656,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 11
+  m_firstOverflowCharacterIndex: 5
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -26680,10 +26680,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1383432597}
-    characterCount: 21
+    characterCount: 16
     spriteCount: 0
     spaceCount: 2
-    wordCount: 5
+    wordCount: 4
     linkCount: 0
     lineCount: 1
     pageCount: 1
