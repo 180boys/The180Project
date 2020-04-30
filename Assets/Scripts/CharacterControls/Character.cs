@@ -113,29 +113,25 @@ public class Character : MonoBehaviour
         //Move and turn
         MoveThePlayer(desiredDirection);
         TurnThePlayer();
-        //AnimateThePlayer(desiredDirection);
-
+        
         Debug.Log("Camera move" + cameraForward);
     }
 
     void MoveThePlayer(Vector3 desiredDirection)
     {
-        //Walk.Play();
         movement.Set(desiredDirection.x, 0f, desiredDirection.z);
 
         movement = movement * speed * Time.deltaTime;
 
         playerRigidbody.MovePosition(transform.position + movement);
-
-        //running animations
-        playerAnimator.SetBool("IsRunning", true);
-        playerAnimator.SetBool("IsIdle", false);
+        
     }
     Vector3 PlaneRayIntersection(Plane plane, Ray ray)
     {
         float dist = 0.0f;
         plane.Raycast(ray, out dist);
         return ray.GetPoint(dist);
+        
     }
 
     Vector3 ScreenPointToWorldPointOnPlane(Vector3 screenPoint, Plane plane, Camera camera)
@@ -161,18 +157,19 @@ public class Character : MonoBehaviour
             //shooting
             Invoke("Shoot", Firerate);
 
-            //running animations
-            playerAnimator.SetBool("IsRunning", true);
-            playerAnimator.SetBool("IsIdle", false);
+            Invoke("Running", 0.01f);
+            CancelInvoke("NotRunning");
+        }
+        else
+        {
+            Invoke("NotRunning", 0.1f);
+            CancelInvoke("Running");
         }
     }
 
     private void Update()
     {
-        //running animations
-        playerAnimator.SetBool("IsRunning", false);
-        playerAnimator.SetBool("IsIdle", true);
-
+        
         EnemyCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
         if (EnemyCounter == 0)
@@ -242,12 +239,15 @@ public class Character : MonoBehaviour
 
     public void Running()
     {
-        
+        //running animations
+        playerAnimator.SetBool("IsRunning", true);
     }
 
     public void NotRunning()
     {
-        
+        //Idle
+        playerAnimator.SetBool("IsRunning", false);
+
     }
 
     public void GameOver()
@@ -321,34 +321,18 @@ public class Character : MonoBehaviour
 
     }
 
-    /* void AnimateThePlayer(Vector3 desiredDirection)
-    {
-        if (!playerAnimator)
-            return;
-
-        Vector3 movement = new Vector3(desiredDirection.x, 0f, desiredDirection.z);
-        float forw = Vector3.Dot(movement, transform.forward);
-        float stra = Vector3.Dot(movement, transform.right);
-
-        playerAnimator.SetFloat("Forward", forw);
-        playerAnimator.SetFloat("Strafe", stra);
-    } */
-
     //on and off checking
     public void OnEnable()
     {
         inputAction.Enable();
-
-        Invoke("Running", 0.1f);
-        CancelInvoke("NotRunning");
+        
     }
 
     public void OnDisable()
     {
         inputAction.Disable();
 
-        Invoke("NotRunning", 0.1f);
-        CancelInvoke("Running");
+        
 
         CancelInvoke("Shoot");
     }
