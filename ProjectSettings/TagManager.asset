@@ -11,6 +11,7 @@ TagManager:
   - HealthPickup
   - BulletPickup
   - MovementPickup
+  - Boss
   layers:
   - Default
   - TransparentFX

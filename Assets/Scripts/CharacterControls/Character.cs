@@ -127,6 +127,9 @@ public class Character : MonoBehaviour
 
         playerRigidbody.MovePosition(transform.position + movement);
 
+        //running animations
+        playerAnimator.SetBool("IsRunning", true);
+        playerAnimator.SetBool("IsIdle", false);
     }
     Vector3 PlaneRayIntersection(Plane plane, Ray ray)
     {
@@ -158,25 +161,17 @@ public class Character : MonoBehaviour
             //shooting
             Invoke("Shoot", Firerate);
 
+            //running animations
+            playerAnimator.SetBool("IsRunning", true);
+            playerAnimator.SetBool("IsIdle", false);
         }
     }
 
     private void Update()
     {
-        if (InputSwitch == false)
-        {
-            //idle animations
-            playerAnimator.SetBool("IsRunning", false);
-            playerAnimator.SetBool("IsIdle", true);
-        }
-
-        if (InputSwitch == true)
-        {
-            //running animations
-            playerAnimator.SetBool("IsRunning", true);
-            playerAnimator.SetBool("IsIdle", false);
-        }
-
+        //running animations
+        playerAnimator.SetBool("IsRunning", false);
+        playerAnimator.SetBool("IsIdle", true);
 
         EnemyCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
@@ -243,6 +238,16 @@ public class Character : MonoBehaviour
         }
 
 
+    }
+
+    public void Running()
+    {
+        
+    }
+
+    public void NotRunning()
+    {
+        
     }
 
     public void GameOver()
@@ -334,14 +339,16 @@ public class Character : MonoBehaviour
     {
         inputAction.Enable();
 
-        InputSwitch = true;
+        Invoke("Running", 0.1f);
+        CancelInvoke("NotRunning");
     }
 
     public void OnDisable()
     {
         inputAction.Disable();
 
-        InputSwitch = false;
+        Invoke("NotRunning", 0.1f);
+        CancelInvoke("Running");
 
         CancelInvoke("Shoot");
     }
