@@ -70,6 +70,8 @@ public class Character : MonoBehaviour
     public GameObject EneBar;
     public GameObject EneBG;
 
+    public bool InputSwitch;
+
     //inputs
     Vector2 movementInput;
     Vector2 lookPosition;
@@ -125,10 +127,6 @@ public class Character : MonoBehaviour
 
         playerRigidbody.MovePosition(transform.position + movement);
 
-        //animations for running
-        playerAnimator.SetBool("IsRunning", true);
-        playerAnimator.SetBool("IsIdle", false);
-
     }
     Vector3 PlaneRayIntersection(Plane plane, Ray ray)
     {
@@ -165,6 +163,21 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
+        if (InputSwitch == false)
+        {
+            //idle animations
+            playerAnimator.SetBool("IsRunning", false);
+            playerAnimator.SetBool("IsIdle", true);
+        }
+
+        if (InputSwitch == true)
+        {
+            //running animations
+            playerAnimator.SetBool("IsRunning", true);
+            playerAnimator.SetBool("IsIdle", false);
+        }
+
+
         EnemyCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
         if (EnemyCounter == 0)
@@ -320,15 +333,15 @@ public class Character : MonoBehaviour
     public void OnEnable()
     {
         inputAction.Enable();
+
+        InputSwitch = true;
     }
 
     public void OnDisable()
     {
         inputAction.Disable();
 
-        //idle animations
-        playerAnimator.SetBool("IsRunning", false);
-        playerAnimator.SetBool("IsIdle", true);
+        InputSwitch = false;
 
         CancelInvoke("Shoot");
     }
